@@ -1,8 +1,12 @@
 # Audio
 persist.vendor.audio.fluence.voicecomm=false
+persist.vendor.audio.stereo_speaker.spin.enable=true
 
 # Camera
 persist.vendor.camera.physical.num=4
 
 # Radio
 ro.vendor.radio.imei.sv=26
+
+# Sensors
+ro.vendor.sensors.mot_ltv=true
