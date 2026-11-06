@@ -69,6 +69,12 @@ $(foreach DEVICE_SKU, $(DEVICE_SKUS), \
     $(LOCAL_PATH)/permissions/unavail.android.hardware.nfc.uicc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.nfc.uicc.xml \
     $(LOCAL_PATH)/permissions/unavail.android.hardware.nfc.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/sku_$(DEVICE_SKU)/unavail.android.hardware.nfc.xml)
 
+# Touch firmware for recovery, which loads the touch drivers before /vendor
+PRODUCT_COPY_FILES += \
+    $(foreach f,csot_goodix_cfg_group.bin goodix-csot-gt9916S-2201040d-61EA60E3-rhodep.bin \
+        goodix-tianma-gt9916S-2201040d-61EA66BC-rhodep.bin tianma_goodix_cfg_group.bin, \
+        vendor/motorola/rhodep/proprietary/vendor/firmware/$(f):$(TARGET_COPY_OUT_VENDOR_RAMDISK)/lib/firmware/$(f))
+
 # Sensors
 PRODUCT_PACKAGES += \
     sensors.moto_ext
