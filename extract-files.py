@@ -21,9 +21,10 @@ from extract_utils.main import (
 
 namespace_imports = [
     'device/motorola/rhodep',
+    'device/motorola/sm6375-common',
     'hardware/motorola',
+    'hardware/qcom-caf/sm6375-6.1',
     'vendor/motorola/sm6375-common',
-    'vendor/qcom/opensource/display',
 ]
 
 lib_fixups: lib_fixups_user_type = {
