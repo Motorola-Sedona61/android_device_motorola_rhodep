@@ -21,6 +21,7 @@ namespace_imports = [
     'device/motorola/rhodep',
     'device/motorola/sm6375-common',
     'hardware/motorola',
+    'hardware/qcom-caf/common/libqti-perfd-client',
     'hardware/qcom-caf/sm6375-6.1',
     'vendor/motorola/sm6375-common',
 ]
