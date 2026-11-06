@@ -25,8 +25,14 @@ vendor/etc/acdbdata/nn_vad_models/fai_3.0.0_0.0_eai_1.00.pmd
 vendor/firmware/aw882xx_pid_2113_acf.bin
 vendor/firmware/aw_skt.bin
 
-# Audio libraries
-vendor/lib/libacdbloader.so
+# Audio - legacy APR/Q6 calibration loader
+vendor/etc/sound_trigger_mixer_paths.xml
+vendor/etc/sound_trigger_platform_info.xml
+vendor/lib64/libacdb-fts.so
+vendor/lib64/libacdbloader.so
+vendor/lib64/libacdbrtac.so
+vendor/lib64/libadiertac.so
+vendor/lib64/libaudcal.so
 
 # Camera
 vendor/lib64/camera/fdconfigpreview.bin
