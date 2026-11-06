@@ -209,9 +209,6 @@ vendor/lib64/camera/com.qti.tuned.mot_rhodep_s5k4h7ff.bin
 vendor/lib64/camera/com.qti.tuned.mot_rhodep_s5kjn1.bin
 vendor/lib64/camera/com.qti.tuned.mot_rhodep_s5kjn1_2nd.bin
 
-# Capsense
-vendor/bin/capsense_reset
-
 # Display calibration data
 vendor/etc/qdcm_calib_data_mipi_mot_cmd_csot_1080p_dsc_655.xml
 vendor/etc/qdcm_calib_data_mipi_mot_cmd_tm_1080p_dsc_655.xml
@@ -249,10 +246,6 @@ vendor/firmware/sec_s3nrn4v_firmware.bin
 
 # OEM
 vendor/etc/vhw.xml
-
-# Sensors
-vendor/lib64/sensors.moto.so
-vendor/lib64/sensors.ssc.so
 
 # Sensor - configs
 vendor/etc/sensors/config/ak991x_0.json
