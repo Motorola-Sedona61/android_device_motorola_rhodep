@@ -5,6 +5,10 @@
 
 DEVICE_PATH := device/motorola/rhodep
 
+# Kernel: the shared sm6375 6.1 Image and base DTB, with the rhodep DTBO and
+# board modules.
+KERNEL_PREBUILT_PATH := device/motorola/rhodep-kernel/6.1
+
 # Inherit from motorola sm6375-common
 include device/motorola/sm6375-common/BoardConfigCommon.mk
 
@@ -13,6 +17,7 @@ AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := rhodep
+BOARD_KERNEL_CMDLINE += androidboot.hab.product=rhodep androidboot.hab.cid=50 androidboot.hab.csv=29
 
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
@@ -21,16 +26,6 @@ ODM_MANIFEST_B_FILES := $(DEVICE_PATH)/sku/manifest_b.xml
 ODM_MANIFEST_D_FILES := $(DEVICE_PATH)/sku/manifest_d.xml
 ODM_MANIFEST_DN_FILES := $(DEVICE_PATH)/sku/manifest_dn.xml
 ODM_MANIFEST_N_FILES := $(DEVICE_PATH)/sku/manifest_n.xml
-
-# Kernel
-BOARD_KERNEL_CMDLINE += androidboot.hab.product=rhodep
-TARGET_KERNEL_CONFIG += vendor/ext_config/moto-holi-rhodep.config
-
-# Kernel Modules
-BOARD_VENDOR_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load))
-BOARD_VENDOR_KERNEL_MODULES_BLOCKLIST_FILE := $(DEVICE_PATH)/modules.blocklist
-BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(strip $(shell cat $(DEVICE_PATH)/modules.load.recovery))
-BOOT_KERNEL_MODULES := $(BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD)
 
 # Partitions
 BOARD_MOT_DP_GROUP_SIZE := 8608808960 # (BOARD_SUPER_PARTITION_SIZE - 4MB)
