@@ -3,34 +3,14 @@ on post-fs
     chown system system /sys/devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.0/touchscreen/primary/double_tap_enabled
     chown system system /sys/devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.0/touchscreen/primary/double_tap_pressed
 
+# Linux 6.1 keeps every vendor module in /vendor/lib/modules.
 on fs
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/goodix_brl_mmi.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_charger.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/bq2597x_mmi_iio.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_discrete_charger_class.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/sgm4154x_charger.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/bq2589x_charger.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_discrete_charger.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/qpnp_adaptive_charge.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/tcpc_class.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/tcpc_rt1711h.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/tcpc_sgm7220.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/rt_pd_manager.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_discrete_turbo_charger.ko
+    exec u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules \
+        goodix_brl_mmi mmi_charger bq2597x_mmi_iio mmi_discrete_charger_class sgm4154x_charger bq2589x_charger mmi_discrete_charger qpnp_adaptive_charge tcpc_class tcpc_rt1711h tcpc_sgm7220 rt_pd_manager mmi_discrete_turbo_charger
 
 on charger
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_charger.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/bq2597x_mmi_iio.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_discrete_charger_class.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/sgm4154x_charger.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/bq2589x_charger.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_discrete_charger.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/qpnp_adaptive_charge.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/tcpc_class.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/tcpc_rt1711h.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/tcpc_sgm7220.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/rt_pd_manager.ko
-    insmod /vendor/lib/modules/${ro.vendor.mot.gki.path}/mmi_discrete_turbo_charger.ko
+    exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules \
+        mmi_charger bq2597x_mmi_iio mmi_discrete_charger_class sgm4154x_charger bq2589x_charger mmi_discrete_charger qpnp_adaptive_charge tcpc_class tcpc_rt1711h tcpc_sgm7220 rt_pd_manager mmi_discrete_turbo_charger
 
 service capsense_reset /vendor/bin/capsense_reset
     class core
