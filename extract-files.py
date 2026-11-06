@@ -44,6 +44,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/camera/components/com.vidhance.node.processing.so'
     ): blob_fixup()
         .replace_needed('libui.so', 'libui-v34.so'),
+    'vendor/lib64/hw/camera.qcom.so': blob_fixup()
+        .replace_needed('libsnsapi.so', 'libsnsapi-stock.so'),
     # Linux 6.1 has no /dev/ion; the common shim serves these from DMA-BUF heaps.
     (
         'vendor/lib64/libacdbloader.so',
