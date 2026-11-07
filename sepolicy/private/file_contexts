@@ -1,0 +1,2 @@
+/system/bin/rhodep_bootlog    u:object_r:rhodep_bootlog_exec:s0
+/metadata/rhodep-bootlogs(/.*)?    u:object_r:rhodep_bootlog_data_file:s0
