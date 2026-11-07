@@ -22,7 +22,6 @@ allow rhodep_bootlog self:global_capability2_class_set syslog;
 
 # Connect directly to logd, independently of the init action queue or a shell.
 read_logd(rhodep_bootlog)
-read_runtime_log_tags(rhodep_bootlog)
 
 # Read the boot/USB progress properties included in the bounded status snapshot.
 # Bootloader, build and public init-service properties are already readable by
@@ -54,9 +53,8 @@ allow rhodep_bootlog {
 
 # Read existing UDC/configfs state without changing gadget configuration.
 allow rhodep_bootlog { sysfs sysfs_android_usb sysfs_usb }:dir r_dir_perms;
-allow rhodep_bootlog { sysfs sysfs_android_usb sysfs_usb }:file r_file_perms;
+allow rhodep_bootlog { sysfs_android_usb sysfs_usb }:file r_file_perms;
 allow rhodep_bootlog configfs:dir search;
-allow rhodep_bootlog configfs:file r_file_perms;
 
 # Recovery may export a failed normal boot's capture, but does not create it.
 recovery_only(`
