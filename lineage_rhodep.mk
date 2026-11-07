@@ -11,7 +11,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/motorola/rhodep/device.mk)
 
 # Inherit some common Lineage stuff.
+ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+WITH_ADB_INSECURE := true
+endif
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+ifeq ($(TARGET_BUILD_VARIANT),userdebug)
+PRODUCT_NOT_DEBUGGABLE_IN_USERDEBUG := false
+PRODUCT_SYSTEM_PROPERTIES += persist.sys.usb.config=adb
+endif
 
 PRODUCT_NAME := lineage_rhodep
 PRODUCT_DEVICE := rhodep
