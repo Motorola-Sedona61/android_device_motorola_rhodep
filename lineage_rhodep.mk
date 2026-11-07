@@ -17,7 +17,7 @@ endif
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 ifeq ($(TARGET_BUILD_VARIANT),userdebug)
-PRODUCT_NOT_DEBUGGABLE_IN_USERDEBUG := false
+PRODUCT_NOT_DEBUGGABLE_IN_USERDEBUG :=
 PRODUCT_SYSTEM_PROPERTIES += persist.sys.usb.config=adb
 endif
 
