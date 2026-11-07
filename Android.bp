@@ -6,6 +6,15 @@
 soong_namespace {
 }
 
+cc_binary {
+    name: "rhodep_bootlog",
+    srcs: ["diag/rhodep_bootlog.cpp"],
+    static_executable: true,
+    stl: "libc++_static",
+    static_libs: ["liblog"],
+    cflags: ["-Wall", "-Wextra", "-Werror"],
+}
+
 install_symlink {
     name: "firmware_aw_cali.bin_symlink",
     vendor: true,
