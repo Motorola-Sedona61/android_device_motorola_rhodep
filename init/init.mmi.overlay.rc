@@ -1,3 +1,7 @@
+on property:ro.debuggable=1 && property:ro.adb.secure=0 && property:ro.persistent_properties.ready=true
+    setprop persist.sys.usb.config adb
+    setprop sys.usb.config adb
+
 on post-fs
     # Sensors
     chown system system /sys/devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.0/touchscreen/primary/double_tap_enabled
