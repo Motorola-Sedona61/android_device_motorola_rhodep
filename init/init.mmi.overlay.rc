@@ -5,8 +5,8 @@ on property:ro.debuggable=1 && property:ro.adb.secure=0 && property:ro.persisten
 
 on post-fs
     # Sensors
-    chown system system /sys/devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.0/touchscreen/primary/double_tap_enabled
-    chown system system /sys/devices/platform/soc/4a80000.spi/spi_master/spi0/spi0.0/touchscreen/primary/double_tap_pressed
+    chown system system /sys/class/touchscreen/primary/double_tap_enabled
+    chown system system /sys/class/touchscreen/primary/double_tap_pressed
 
 # Linux 6.1 keeps every vendor module in /vendor/lib/modules.
 on fs
