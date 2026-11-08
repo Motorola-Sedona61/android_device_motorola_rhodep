@@ -4,4 +4,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_rhodep.mk
+    $(LOCAL_DIR)/halcyon_rhodep.mk
+
+COMMON_LUNCH_CHOICES := \
+    halcyon_rhodep-cp2a-userdebug
