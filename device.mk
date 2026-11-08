@@ -62,10 +62,6 @@ PRODUCT_PACKAGES += \
     init.mmi.overlay.rc \
     init.oem.fingerprint2.sh
 
-ifeq ($(TARGET_BUILD_VARIANT),userdebug)
-PRODUCT_PACKAGES += rhodep_bootlog
-endif
-
 DEVICE_SKUS := b d
 
 PRODUCT_COPY_FILES += \

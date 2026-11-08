@@ -42,12 +42,7 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # Recovery
 TARGET_RECOVERY_UI_MARGIN_HEIGHT := 90
 
-# SELinux
-SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/private
-
 # Security
-BOARD_KERNEL_CMDLINE := $(filter-out androidboot.selinux=%,$(BOARD_KERNEL_CMDLINE))
-BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOOT_SECURITY_PATCH := 2025-04-01
 VENDOR_SECURITY_PATCH := $(BOOT_SECURITY_PATCH)
 
