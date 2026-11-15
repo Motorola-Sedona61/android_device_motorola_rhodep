@@ -58,6 +58,12 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libion.so', 'libion_qsecom_shim.so'),
     'vendor/lib64/libmot_chi_desktop_helper.so': blob_fixup()
         .add_needed('libgui_shim_vendor.so'),
+    # thermal-engine-v2 names its CPU frequency devices cpu-cluster%d, so the
+    # v1-era cpu0 and cpu6 actions match nothing and both CPU rules get
+    # rejected, leaving the CPU without thermal-engine mitigation.
+    'vendor/etc/thermal-engine-rhodep.conf': blob_fixup()
+        .regex_replace(r'\bcpu0\b', 'cpu-cluster0')
+        .regex_replace(r'\bcpu6\b', 'cpu-cluster1'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
