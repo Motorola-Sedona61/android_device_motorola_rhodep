@@ -60,8 +60,11 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libgui_shim_vendor.so'),
     # thermal-engine-v2 names its CPU frequency devices cpu-cluster%d, so the
     # v1-era cpu0 and cpu6 actions match nothing and both CPU rules get
-    # rejected, leaving the CPU without thermal-engine mitigation.
+    # rejected, leaving the CPU without thermal-engine mitigation. The kernel
+    # names Moto's quiet thermistor zone quiet-therm, the name the QTI thermal
+    # HAL looks up.
     'vendor/etc/thermal-engine-rhodep.conf': blob_fixup()
+        .regex_replace(r'\bquiet_therm\b', 'quiet-therm')
         .regex_replace(r'\bcpu0\b', 'cpu-cluster0')
         .regex_replace(r'\bcpu6\b', 'cpu-cluster1'),
 }  # fmt: skip
