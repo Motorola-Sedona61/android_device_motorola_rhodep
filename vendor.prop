@@ -5,6 +5,10 @@ persist.vendor.audio.stereo_speaker.spin.enable=true
 # Camera
 persist.vendor.camera.physical.num=4
 
+# Display
+ro.surface_flinger.has_wide_color_display=true
+ro.surface_flinger.wcg_composition_dataspace=143261696
+
 # Radio
 ro.vendor.radio.imei.sv=26
 
