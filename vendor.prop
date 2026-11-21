@@ -6,6 +6,7 @@ persist.vendor.audio.stereo_speaker.spin.enable=true
 persist.vendor.camera.physical.num=4
 
 # Display
+debug.sf.enable_hwc_vds=1
 ro.surface_flinger.has_wide_color_display=true
 ro.surface_flinger.wcg_composition_dataspace=143261696
 ro.vendor.display.foss=1
